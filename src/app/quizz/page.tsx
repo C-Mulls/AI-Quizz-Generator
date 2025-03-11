@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import ProgressBar from "@/components/ui/progressBar";
+import ProgressBar from "@/components/progressBar";
 import { ChevronLeft, X } from "lucide-react";
 import ResultCard from "./ResultCard";
 import QuizzSubmission from "./QuizzSubmission"
@@ -59,7 +59,7 @@ export default function Home() {
         setIsCorrect(null);
     }
 
-    const handleAnswer = (answer) => {
+    const handleAnswer = (answer: any) => {
         setSelectedAnswer(answer.id);
         const isCurrentCorrect = answer.isCorrect;
         if (isCurrentCorrect) {
@@ -113,7 +113,7 @@ export default function Home() {
       )}
     </main>
     <footer className="footer pb-9 px-6 relative mb-0">
-        <ResultCard isCorrect={isCorrect} correctAnswer={questions[currentQuestion].answers.find(answer => answer.isCorrect === true)?.answerText} />
+        <ResultCard isCorrect={isCorrect} correctAnswer={questions[currentQuestion].answers.find(answer => answer.isCorrect === true)?.answerText || ""} />
       <Button variant="neo" size="lg" onClick={handleNext}>{!started ? 'Start' : (currentQuestion === questions.length - 1) ? 'Submit' : 'Next'}</Button>
     </footer>
     </div> 
