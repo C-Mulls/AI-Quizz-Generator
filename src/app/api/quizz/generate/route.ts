@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import { ChatOpenAI } from "@langchain/openai";
-import { HumanMessage} from "@langchain/core/messages";
+import { HumanMessage } from "@langchain/core/messages";
 
 import { PDFLoader } from "langchain/document_loaders/fs/pdf";
 import { JsonOutputFunctionsParser } from "langchain/output_parsers";
@@ -82,14 +82,14 @@ export async function POST(req: NextRequest) {
       })
       .pipe(parser);
 
-    const message = new HumanMessage({
-      content: [
-        {
-          type: "text",
-          text: prompt + "\n" + texts.join("\n"),
-        },
-      ],
-    });
+      const message = new HumanMessage({
+        content: [
+          {
+            type: "text",
+            text: prompt + "\n" + texts.join("\n"),
+          },
+        ],
+      }) as any;
 
     const result: any = await runnable.invoke([message]);
     console.log(result);
