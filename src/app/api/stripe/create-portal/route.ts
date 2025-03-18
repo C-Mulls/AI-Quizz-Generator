@@ -54,7 +54,7 @@ export async function POST(req: Request) {
     customer = { id: response.id };
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://ai-quizz-generator.vercel.app/";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://ai-quizz-generator.vercel.app";
 
   const url = await stripe.billingPortal.sessions.create({
     customer: customer.id,
