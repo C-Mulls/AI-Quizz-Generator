@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react"
 
-const ManageSubscription = () => {
+const ManageSunscription = () => {
   const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -28,8 +28,7 @@ const ManageSubscription = () => {
     }
   }
   return (
-    <Button disabled={loading} 
-    onClick={redirectToCustomerPortal}>{
+    <Button disabled={loading} onClick={redirectToCustomerPortal}>{
       loading ? <>
         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
         Please Wait
@@ -38,4 +37,4 @@ const ManageSubscription = () => {
   )
 }
 
-export default ManageSubscription;
+export default ManageSunscription;
