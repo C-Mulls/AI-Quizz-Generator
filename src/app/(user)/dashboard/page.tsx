@@ -39,9 +39,7 @@ const page = async () => {
           heatMapData ? <SubmissionsHeatMap data={heatMapData.data} /> : null
         }
       </div>
-      <div>
       <SubscribeBtn userId={userId} price={PRICE_ID} />
-      </div>
       <QuizzesTable quizzes={userQuizzes} />
     </div>
   )
