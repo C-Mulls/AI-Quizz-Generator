@@ -82,14 +82,14 @@ export async function POST(req: NextRequest) {
       })
       .pipe(parser);
 
-      const message = new HumanMessage({
-        content: [
-          {
-            type: "text",
-            text: prompt + "\n" + texts.join("\n"),
-          },
-        ],
-      }) as any;
+    const message = new HumanMessage({
+      content: [
+        {
+          type: "text",
+          text: prompt + "\n" + texts.join("\n"),
+        },
+      ],
+    });
 
     const result: any = await runnable.invoke([message]);
     console.log(result);
